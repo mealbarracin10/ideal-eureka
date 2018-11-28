@@ -7,7 +7,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 const filePathOptions = {
-  root: 'https://warm-garden-59874.herokuapp.com/'
+  root: __dirname + '/dist/'
 }
 // use public folder for static assets, like css
 app.use(express.static('dist'))
@@ -18,7 +18,9 @@ app.use(express.json())
 app.get('*', (req, res) => {
   res.sendFile('index.html', filePathOptions, (err) => {
     if (err){
-      console.log(__dirname, err);
+      console.log(__dirname)
+      console.log('++++++++++++');
+      console.log(err);
     } else {
       console.log('Sent', __dirname);
     }
