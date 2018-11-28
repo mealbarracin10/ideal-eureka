@@ -18,7 +18,7 @@ app.use(express.json())
 app.get('*', (req, res) => {
   res.sendFile('index.html', filePathOptions, (err) => {
     if (err){
-      next(err)
+      console.log(err);
     } else {
       console.log('Sent');
     }
