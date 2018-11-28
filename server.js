@@ -15,16 +15,16 @@ app.use(express.static('dist'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-app.get('*', (req, res) => {
-  res.sendFile('index.html', filePathOptions, (err) => {
-    if (err){
-      console.log(__dirname)
-      console.log('++++++++++++');
-      console.log(err);
-    } else {
-      console.log('Sent', __dirname);
-    }
-  })
+// app.get('*', (req, res) => {
+//   res.sendFile('index.html', filePathOptions, (err) => {
+//     if (err){
+//       console.log(__dirname)
+//       console.log('++++++++++++');
+//       console.log(err);
+//     } else {
+//       console.log('Sent', __dirname);
+//     }
+//   })
 })
 
 // Listen
