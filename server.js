@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.get('*', (req, res) => {
-  res.status(404).json('Sorry, page not found')
+  res.sendFile('./dist/index.html')
 })
 
 // Listen
