@@ -7,6 +7,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 // Middleware
+app.engine('html', require('ejs').renderFile);
 
 const filePathOptions = {
   root: __dirname + '/public/'
