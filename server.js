@@ -7,7 +7,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 const filePathOptions = {
-  root: __dirname + '/public/'
+  root: __dirname + '/dist/'
 }
 // use public folder for static assets, like css
 app.use(express.static('dist'))
