@@ -7,7 +7,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 const filePathOptions = {
-  root: __dirname + '/dist/'
+  root: 'https://warm-garden-59874.herokuapp.com/'
 }
 // use public folder for static assets, like css
 app.use(express.static('dist'))
@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
     if (err){
       console.log(__dirname, err);
     } else {
-      console.log('Sent');
+      console.log('Sent', __dirname);
     }
   })
 })
