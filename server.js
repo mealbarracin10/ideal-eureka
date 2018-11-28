@@ -6,9 +6,6 @@ const app = express()
 // Allow use of Heroku's port or your own local port, depending on your environment
 const PORT = process.env.PORT || 3000
 
-// Middleware
-app.engine('html', require('ejs').renderFile);
-
 const filePathOptions = {
   root: __dirname + '/public/'
 }
@@ -18,19 +15,15 @@ app.use(express.static('dist'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.render('index.ejs')
+app.get('*', (req, res) => {
+  res.sendFile('index.html', filePathOptions, (err) => {
+    if (err){
+      next(err)
+    } else {
+      console.log('Sent');
+    }
+  })
 })
-
-// app.get('*', (req, res) => {
-//   res.sendFile('index.html', filePathOptions, (err) => {
-//     if (err){
-//       next(err)
-//     } else {
-//       console.log('Sent');
-//     }
-//   })
-// })
 
 // Listen
 app.listen(PORT, ()=>{
