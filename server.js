@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.render('index.html')
+  res.render('index.ejs')
 })
 
 // app.get('*', (req, res) => {
