@@ -7,14 +7,24 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 // Middleware
+
+const filePathOptions = {
+  root: __dirname + '/dist/'
+}
 // use public folder for static assets, like css
-app.use(express.static('dist'))
+app.use(express.static('public'))
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.get('*', (req, res) => {
-  res.sendFile('index.html')
+  res.sendFile('index.html', filePathOptions, ()=>{
+    if (err){
+      next(err)
+    } else {
+      console.log('Sent');
+    }
+  })
 })
 
 // Listen
