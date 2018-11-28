@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "node server.js"
+    "start": "yarn serve",
+    "heroku-postbuild" : "yarn build"
   },
   "engines": {
     "node": "10.11.0"
