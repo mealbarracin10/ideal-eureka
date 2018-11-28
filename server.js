@@ -8,13 +8,13 @@ const PORT = process.env.PORT || 3000
 
 // Middleware
 // use public folder for static assets, like css
-app.use(express.static('dist'))
+app.use(express.static(__dirname))
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.get('*', (req, res) => {
-  res.sendFile('dist/index.html')
+  res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
 // Listen
